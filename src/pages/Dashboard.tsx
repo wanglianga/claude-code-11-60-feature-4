@@ -10,6 +10,7 @@ export default function Dashboard() {
     plans: await db.plans.count(),
     runs: await db.runs.count(),
     reports: await db.reports.count(),
+    miaReports: await db.miaReports.count(),
     manifests: await db.manifests.count()
   }), []);
   const lastRun = useLiveQuery(async () => {
@@ -33,6 +34,7 @@ export default function Dashboard() {
           { label: '生成方案', value: counts?.plans, to: '/plans' },
           { label: '生成运行', value: counts?.runs, to: '/runs' },
           { label: '核验报告', value: counts?.reports, to: '/reports' },
+          { label: '成员推断评估', value: counts?.miaReports, to: '/membership' },
           { label: '发布清单', value: counts?.manifests, to: '/manifests' }
         ].map((s) => (
           <div className="card" key={s.label}>
@@ -51,6 +53,7 @@ export default function Dashboard() {
             <li><b>配置并批准方案</b>：在「生成方案」从批次学习分布、选择生成路线、设定种子与容差，通过审批门禁。</li>
             <li><b>启动生成运行</b>：在「生成运行」以固定快照输出全新标识的多表演练包。</li>
             <li><b>质量核验</b>：对运行结果执行总体统计比对、引用完整性、资源占用、时间可行性与基础风险核验。</li>
+            <li><b>成员推断评估</b>：按人员/家庭主体切分成员与对照集，在固定误报率下量化模拟攻击的识别能力、推断优势与高风险分层；“本次未检出”不等于零风险。</li>
             <li><b>发布清单</b>：核验通过后生成清单，可回查批次、规则、运行参数与核验结果。</li>
           </ol>
         </div>

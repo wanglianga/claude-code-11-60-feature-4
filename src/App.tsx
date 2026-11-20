@@ -7,6 +7,7 @@ import RuleSets from './pages/RuleSets';
 import Plans from './pages/Plans';
 import Runs from './pages/Runs';
 import Reports from './pages/Reports';
+import Membership from './pages/Membership';
 import Manifests from './pages/Manifests';
 
 export function useOperator(): [string, (v: string) => void] {
@@ -30,6 +31,7 @@ export default function App() {
         <NavLink to="/plans">生成方案</NavLink>
         <NavLink to="/runs">生成运行</NavLink>
         <NavLink to="/reports">质量核验</NavLink>
+        <NavLink to="/membership">成员推断评估</NavLink>
         <NavLink to="/manifests">发布清单</NavLink>
         <div className="op-box">
           当前操作员（本地演示）
@@ -47,6 +49,7 @@ export default function App() {
           <Route path="/plans" element={<Plans />} />
           <Route path="/runs" element={<Runs />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/membership" element={<Membership />} />
           <Route path="/manifests" element={<Manifests />} />
         </Routes>
       </main>

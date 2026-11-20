@@ -20,6 +20,7 @@
 **/.parcel-cache/
 **/.vite/
 **/.npm/
+.npm-cache/
 **/.pnpm-store/
 **/.cache/
 **/.gocache/
